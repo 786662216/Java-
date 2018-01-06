@@ -37,10 +37,10 @@ class InfTalkFrame extends Frame {
 		TextField tf_usename = new TextField();
 		TextField tf_id = new TextField();
 		Font f = new Font(Font.DIALOG, Font.PLAIN, 18);
-		tf_usename.setFont(new Font("ËÎÌå", 33,88));
+		tf_usename.setFont(new Font("å®‹ä½“", 33,88));
 		tf_usename.setForeground(new Color(255,48,48));
 		tf_id.setForeground(new Color(255,48,48));
-		tf_id.setFont(new Font("ËÎÌå",33,88));
+		tf_id.setFont(new Font("å®‹ä½“",33,88));
 		tp.add(tf_usename);
 		tp.add(tf_id);
 		add(p2);
@@ -73,7 +73,7 @@ class InfTalkFrame extends Frame {
 				String usenamestr = tf_usename.getText();
 				if(id>0&&id<65535) {
 					setVisible(false);
-//					³É¹¦¹Ø±Õ
+//					æˆåŠŸå…³é—­
 					new ClientLaunch(usenamestr,id);
 //					System.out.println("!");
 //					System.exit(0);
@@ -152,13 +152,13 @@ class ClientLaunch {
 			tf_win.setBounds(8,50,292,350);
 			tf_win.setEditable(false);
 			tf_win.setBackground(Color.WHITE);
-			tf_win.setFont(new Font("ËÎÌå",48,32));
+			tf_win.setFont(new Font("å®‹ä½“",48,32));
 			tf_in.setEditable(true);
-			tf_in.setFont(new Font("ËÎÌå",48,32));
+			tf_in.setFont(new Font("å®‹ä½“",48,32));
 			tf_in.setBounds(8,400,162,90);
 			tf_in.addActionListener(new SendInf());
 			Button send = new Button("Send");
-//			ÒÑ¾­Ö´ĞĞ¡£
+//			å·²ç»æ‰§è¡Œã€‚
 			talkf.addWindowListener(new WindowAdapter() {
 				public void windowClosing(WindowEvent e) {
 					talkf.setVisible(false);
@@ -171,7 +171,7 @@ class ClientLaunch {
 			talkf.add(tf_in);
 			talkf.add(send);
 			new Thread(new ClientInf(s)).start();
-//			Ïß³Ì¿ªÊ¼
+//			çº¿ç¨‹å¼€å§‹
 //			try {
 //				GetInf();
 //			}catch(IOException ae) {
@@ -212,7 +212,7 @@ class ClientLaunch {
 		
 		public String getTime() {
 			Date date = new Date();
-		    long times = date.getTime();//Ê±¼ä´Á
+		    long times = date.getTime();//æ—¶é—´æˆ³
 		    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		    String dateString = formatter.format(date);
 		   return dateString;
@@ -250,10 +250,6 @@ class ClientLaunch {
 			}
 		}
 	}
-	
-	public void getTime() {
-			Date data = new Date();
-			System.out.println(new Date());
-		}
+
 	}
 }

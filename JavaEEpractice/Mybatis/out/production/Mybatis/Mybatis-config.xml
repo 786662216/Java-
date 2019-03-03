@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- 主配置文件 -->
+
+<!-- 具体配置，和spring框架整合时数据库的连接都会直接被配好 -->
+<configuration>
+    <typeAliases>
+        <!-- 命名空间 -->
+        <package name="com.how2java.pojo"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <!-- 用的是JDBC -->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!-- 驱动 -->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <!-- mysqlURL，包括端口、数据库、编码 -->
+                <property name="url" value="jdbc:mysql://localhost:3306/how2java?characterEncoding=UTF-8"/>
+                <!-- 用户名密码 -->
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 映射sql语句配置文件 -->
+    <mappers>
+        <mapper resource="com/how2java/pojo/Category.xml"/>
+    </mappers>
+</configuration>

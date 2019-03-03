@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--前端控制器，也是SpringMVC的入口-->
+    <!--具体作用去看笔记-->
+
+    <!--如果你没有进行特别的配置，框架将会使用默认的bean。-->
+
+    <!--开启框架对注解控制器的自动检测，就是扫描@Controler等注释-->
+    <context:component-scan base-package="com.spring.mvc"/>
+
+    <!--配置处理映射器-->
+        <!--默认-->
+    <!--配置处理配置器-->
+        <!--默认-->
+
+    <!--配置视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--前缀-->
+        <property name="prefix">
+            <value>/WEB-INF/</value>
+        </property>
+        <!--后缀-->
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+
+
+</beans>

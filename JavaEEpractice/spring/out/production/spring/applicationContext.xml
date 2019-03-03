@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--bean元素：使用该元素描述需要spring容器管理的对象
+            name是给该类起的名字，获得对象时根据给名称获得对象
+            class是被管理对象的完整类名
+            scope属性默认是singleton，单例的，还有prototype，多例的
+                单例就是创建对象时只有一个实例，多例就是有多个
+            生命周期属性：初始化和销毁对象的方法 -->
+
+    <!--import标签可以引入别的配置文件，分模块处理&ndash;&gt;-->
+
+    <!--将刚创建的user类交给spring容器管理-->
+    <!--set属性注入-->
+    <bean class="com.spring.bean.user1" name="user1" ><!--init-method="" destroy-method="" 生命周期属性>-->
+        <!--为此对象中name，age属性赋值-->
+        <property name="age" value="18"></property>
+        <property name="name" value="xijinping"></property>
+        <!--为c属性以下方设置赋值（引用注入）-->
+        <property name="c" ref="car"></property>
+    </bean>
+
+    <!--将刚创建的car类交给spring容器管理并设置好属性-->
+    <bean class="com.spring.bean.car" name="car">
+        <!--name为成员变量名字，value为值-->
+        <property name="name" value="hongqi"></property>
+        <property name="color" value="black"></property>
+    </bean>
+
+    <!--构造方法注入-->
+    <bean name="user2" class="com.spring.bean.user2">
+        <!--name为成员变量名字，value为值-->
+        <constructor-arg name="name" value="adming"></constructor-arg>
+        <!--引用注入-->
+        <constructor-arg name="c" ref="car"></constructor-arg>
+
+    </bean>
+</beans>

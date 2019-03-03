@@ -1,4 +1,4 @@
-# JavaPrctice
+# JavaPractice
 
 为了代码审计开始学java
 
